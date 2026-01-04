@@ -23,7 +23,7 @@ class Post(Base):
     created_at = Column(DateTime, default = datetime.utcnow)
 
 engine = create_async_engine(DATABASE_URL)
-async_sessionmaker = async_sessionmaker(engine, expire_on_commit = False)
+async_session_maker = async_sessionmaker(engine, expire_on_commit = False)
 
 async def create_db_and_tables():
     async with engine.begin() as conn:
